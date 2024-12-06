@@ -8,7 +8,7 @@ let posY = 100;
 
 
 const linearMoveSpeed = 10;
-const diagonalMoveSpeed = 
+const diagonalMoveSpeed = linearMoveSpeed / Math.sqrt(2);
 let moveSpeed = linearMoveSpeed;
 
 const keysPressed = {
@@ -41,16 +41,16 @@ document.addEventListener('keydown', (event) => {
     if (event.key in keysPressed) {
         keysPressed[event.key] = true;
         if (Object.values(keysPressed).filter(val => val).length === 2){
-            moveSpeed = 
+            moveSpeed = diagonalMoveSpeed;
         };
     }
     
 });
 requestAnimationFrame(updatePosition);
 
-
 document.addEventListener('keyup', (event) => {
     if (event.key in keysPressed) {
         keysPressed[event.key] = false;
+        moveSpeed = linearMoveSpeed;
     }
 });
