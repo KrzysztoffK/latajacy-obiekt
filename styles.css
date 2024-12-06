@@ -7,3 +7,12 @@
     left: 100px;
 }
 
+.present {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    margin-left: 200px;
+    margin-bottom: 200px;
+    position: sticky;
+}
+
