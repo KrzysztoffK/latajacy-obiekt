@@ -1,18 +1,65 @@
+html, body{
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Mountains of Christmas';
+    display: flex;
+    justify-content: center;
+    /*background-image: url("background.png");
+    background-repeat: no-repeat;*/
+    background: linear-gradient(to bottom, #d9efff, #a3d8f4, #6cb8e6, #388ad5);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button {
+    font-family: 'Mountains of Christmas';
+}
+
 #userObject {
-    width: 50px;
-    height: 50px;
-    background-color: red;
+    z-index: -1;
     position: absolute;
     top: 100px;
     left: 100px;
+    background-image: url("santa.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
-.present {
-    width: 10px;
-    height: 10px;
-    background-color: blue;
-    margin-left: 200px;
-    margin-bottom: 200px;
-    position: sticky;
+.staticObject {
+    z-index: -1;
+    /*background-color: blue;*/
+    position: absolute;
+    background-image: url("gift1.png");
+    background-repeat: no-repeat;
+    
 }
 
+.movableObstacle {
+    z-index: -1;
+    /*background-color: blue;*/
+    position: absolute;
+    background-image: url("belzebub.png");
+    background-repeat: no-repeat;
+}
+
+#start {
+    justify-content: center;
+}
+
+#stats {
+
+    display: none;
+}
+
+#points {
+    display: none;
+    justify-items: center;
+}
+
+#gameOver {
+    display: none;
+    justify-content: center;
+
+}
