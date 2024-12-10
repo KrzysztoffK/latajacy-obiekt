@@ -2,12 +2,31 @@ html, body{
     min-height: 100%;
 }
 
+p {
+    letter-spacing: 1px;
+}
+
+span.christmas{
+    color: rgb(255, 255, 255);
+}
+
+h1 {
+    background: linear-gradient(to bottom, #b30000, #ff4d4d, #ffccd5, #ffffff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    -webkit-text-stroke-width: 0.0001px;
+    -webkit-text-stroke-color: black;
+  }
+
+
 body {
     font-family: 'Mountains of Christmas';
     display: flex;
     justify-content: center;
-    /*background-image: url("background.png");
-    background-repeat: no-repeat;*/
     background: linear-gradient(to bottom, #d9efff, #a3d8f4, #6cb8e6, #388ad5);
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,13 +34,25 @@ body {
 
 button {
     font-family: 'Mountains of Christmas';
-}
+    background: linear-gradient(to bottom, #d9efff, #a3d8f4, #6cb8e6, #388ad5);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 
 #userObject {
     z-index: -1;
     position: absolute;
-    top: 100px;
-    left: 100px;
     background-image: url("santa.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -29,16 +60,13 @@ button {
 
 .staticObject {
     z-index: -1;
-    /*background-color: blue;*/
     position: absolute;
     background-image: url("gift1.png");
     background-repeat: no-repeat;
-    
 }
 
 .movableObstacle {
-    z-index: -1;
-    /*background-color: blue;*/
+    z-index: -2;
     position: absolute;
     background-image: url("belzebub.png");
     background-repeat: no-repeat;
@@ -46,10 +74,17 @@ button {
 
 #start {
     justify-content: center;
+    justify-items: center;
+    
+}
+
+#instructions {
+    display: none;
+    justify-content: center;
+    justify-items: center;
 }
 
 #stats {
-
     display: none;
 }
 

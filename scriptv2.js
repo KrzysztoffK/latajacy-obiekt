@@ -16,9 +16,13 @@ const startDiv = document.querySelector("#start");
 const pointsDiv = document.querySelector("#points");
 const pointsCounterDiv = document.querySelector("#pointsCounter");
 const restartButton = document.querySelector("#restartGame");
-const menuButton = document.querySelector("#mainMenu");
+
+const menuButtons = document.querySelectorAll(".mainMenu");
+
 const gameOver = document.querySelector("#gameOver");
 const beginGameButtons = document.querySelectorAll(".beginGame");
+const instructionsButton = document.querySelector("#showInstructions");
+const instructionsDiv = document.querySelector("#instructions");
 
 let staticObjects;
 let userObject;
@@ -96,7 +100,7 @@ class MovableObstacle{
         ) {
             this.remove();
             if(obstacleGenerator){
-                const newObstacle = spawnMovableObstacle(movableObstacleWidth, movableObstacleHeight, 5);
+                const newObstacle = spawnMovableObstacle(movableObstacleWidth, movableObstacleHeight, Math.random()*5);
                 movableObstacles.push(newObstacle);
                 const index = movableObstacles.indexOf(this);
                 if (index > -1) {
@@ -407,22 +411,28 @@ function startGame() {
     gameOver.style.display = "none";
     startDiv.style.display = "none";
     pointsDiv.style.display = "block";
-    userObject = new UserObject(100, 100, userObjectWidth, userObjectHeight);
+    userObject = new UserObject(screenWidth / 2, screenHeight / 2, userObjectWidth, userObjectHeight);
     staticObjects = generateStaticObjects(10, staticObjectWidth, staticObjectHeight);
-    movableObstacles = generateMovableObstacles(10, movableObstacleWidth, movableObstacleHeight, 5);
+    movableObstacles = generateMovableObstacles(6, movableObstacleWidth, movableObstacleHeight, Math.random()*5);
     gameLoop();
 }
 
 
-startButton.addEventListener('click', (event) => {
+startButton.addEventListener('click', () => {
     startGame();
 });
 
-restartButton.addEventListener('click', (event) => {
+restartButton.addEventListener('click', () => {
     startGame();
-
 });
 
-menuButton.addEventListener('click', (event) => {
-    window.location.reload();
+menuButtons.forEach((menuButton) => {
+    menuButton.addEventListener('click', () => {
+        window.location.reload();
+    })
+});
+
+instructionsButton.addEventListener('click', () => {
+    startDiv.style.display = "none";
+    instructionsDiv.style.display = "block";
 });
