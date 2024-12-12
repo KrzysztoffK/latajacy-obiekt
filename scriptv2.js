@@ -15,14 +15,12 @@ const startButton = document.querySelector("#startGame");
 const startDiv = document.querySelector("#start");
 const pointsDiv = document.querySelector("#points");
 const pointsCounterDiv = document.querySelector("#pointsCounter");
-const restartButton = document.querySelector("#restartGame");
-
 const menuButtons = document.querySelectorAll(".mainMenu");
-
 const gameOver = document.querySelector("#gameOver");
 const beginGameButtons = document.querySelectorAll(".beginGame");
 const instructionsButton = document.querySelector("#showInstructions");
 const instructionsDiv = document.querySelector("#instructions");
+const christmasText = document.getElementById("christmasText");
 
 let staticObjects;
 let userObject;
@@ -188,6 +186,10 @@ class UserObject{
                 staticObjects.splice(index, 1);
                 pointsCounter++;
                 pointsCounterDiv.innerHTML = pointsCounter;
+                christmasText.classList.add("visible");
+                setTimeout(() => {
+                    christmasText.classList.remove("visible");
+                }, 400);
 
                 const x = Math.random() * (screenWidth - staticObjectWidth);
                 const y = Math.random() * (screenHeight - staticObjectHeight);
@@ -214,11 +216,12 @@ class UserObject{
                     staticObject.remove();
                 });
                 gameOver.style.display = "block";
+                
                 pointsDiv.style.display = "none";
+                console.log(pointsCounter);
+                pointsCounterDiv.innerHTML = pointsCounter;
                 userObject.remove();
                 obstacleGenerator = false;
-                //alert("Game Over!");
-                //window.location.reload(); // Reload the game
             }
         });
     }
@@ -413,16 +416,12 @@ function startGame() {
     pointsDiv.style.display = "block";
     userObject = new UserObject(screenWidth / 2, screenHeight / 2, userObjectWidth, userObjectHeight);
     staticObjects = generateStaticObjects(10, staticObjectWidth, staticObjectHeight);
-    movableObstacles = generateMovableObstacles(6, movableObstacleWidth, movableObstacleHeight, Math.random()*5);
+    movableObstacles = generateMovableObstacles(10, movableObstacleWidth, movableObstacleHeight, Math.random()*5);
     gameLoop();
 }
 
 
 startButton.addEventListener('click', () => {
-    startGame();
-});
-
-restartButton.addEventListener('click', () => {
     startGame();
 });
 
@@ -436,3 +435,4 @@ instructionsButton.addEventListener('click', () => {
     startDiv.style.display = "none";
     instructionsDiv.style.display = "block";
 });
+

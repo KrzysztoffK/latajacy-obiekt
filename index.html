@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Santa simulator 1999</title>
-    <link rel="icon" type="image/x-icon" href="czapa.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
 </head>
 <body>
     <div id="start">
         <h1>Santa Simulator 1999</h1>
-        <button id="showInstructions"><span class="christmas">Instructions</span></button><br />
+        <p></p>
+        <button id="showInstructions"><span class="christmas">Instructions</span></button><br /><br />
         <button id="startGame" class="beginGame"><span class="christmas">Start</span></button>
     </div>
     <div id="instructions">
         <h1>Instructions</h1>
         <p>Your objective is to collect as many gifts as you can and avoid the demons that will try to get in your way.</p>
         <p>Evert gift is worth one point.</p>
-        <p>Randomly, there will spawn an extra gift worth 10 points.</p>
-        <br />
-        <p>Randomly, there will spawn a follower that will follow you for 5 seconds.</p>
-        <p>You lose if he manages to catch you.</p>
         <p>Good luck!</p>
         <button class="mainMenu">Menu</button>
     </div>
-    <div id="stats">
-        <h1>Stats</h1>
-        <p>Gifts collected: </p>
-        <p>Ultra gifts collected: </p>
-        <p>Demons spawned: </p>
-        <p>Ultra demons spawned: </p>
-    </div>
     <div id="points">
-        <h2>Gifts collected</h2>
-        <h2 id="pointsCounter"></h2>
+        <div id="christmasText" class="hidden">Gift collected</div>
     </div>
     <div id="gameOver">
         <h1>You got caught!</h1>
-        <p>Unfortunately, you got caught by a naughty demon!</p>
+        <p>Unfortunately, you got caught by a demon!</p>
         <p>No worries, you can play again!</p>
-        <button id="restartGame" class="beginGame">Play again!</button>
+        <h3>Gifts collected</h3>
+        <h3 id="pointsCounter"></h3>
         <button class="mainMenu">Menu</button>
     </div>
+    <!--- <script type="module" src="/scripts/script.js"></script> --->
     <script src="scriptv2.js"></script>
 </body>
 </html>
